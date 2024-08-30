@@ -1,0 +1,84 @@
+.body-login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: rgb(131,58,180);
+    background: linear-gradient(120deg, rgba(131,58,180,1) 0%, rgba(235,56,56,1) 40%, rgba(252,176,69,1) 83%);
+
+    .login-container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 50px;
+        max-width: 400px;
+        width: 100%;
+        -webkit-box-shadow: 0px 0px 46px 22px rgba(7, 7, 7, 0.2);
+        -moz-box-shadow: 0px 0px 46px 22px rgba(7, 7, 7, 0.2);
+        box-shadow: 0px 0px 46px 22px rgba(7, 7, 7, 0.2);
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                margin-bottom: 20px;
+                font-size: 24px;
+                color: #333;
+                text-align: center;
+            }
+
+            .input-group {
+                margin-bottom: 15px;
+
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-size: 14px;
+                    color: #333;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    box-sizing: border-box;
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                margin-top: 10px;
+                box-sizing: border-box;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+
+            p {
+                margin-top: 15px;
+                font-size: 14px;
+                text-align: center;
+
+                a {
+                    color: #007bff;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
