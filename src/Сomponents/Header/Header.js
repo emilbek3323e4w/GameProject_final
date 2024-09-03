@@ -1,37 +1,37 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import './style.scss'
-import logo from '../assets/images/Epic_Games_logo.png'
+import { Link } from 'react-router-dom';
+import './style.scss';
+import logo from '../assets/images/Epic_Games_logo.png'; // Update the path if necessary
 
 const Header = () => {
     return (
         <header className="header">
             <div className="header-container">
-                <div className="header-content">
-
-
-                    <Link to={'/home'} className="header-brand">
-                        <img className={'logo-img'} src={logo} alt={'logo'}/>
-                        <p className="header-title">GameDB</p>
+                <div className="header-left">
+                    <Link to="/src/pages/HomePage/HomePage" className="header-brand">
+                        <img className="logo-img" src={logo} alt="Logo" />
                     </Link>
+                </div>
 
-                    <ul className="header-nav">
-                        <li><Link to={'/home'} className="nav-item text-secondary">Home</Link></li>
-                        <li><Link to={''} className="nav-item text-secondary">About</Link></li>
-                        <li><Link to={''} className="nav-item text-secondary">Settings</Link></li>
+                <div className="header-center">
+                    <div className="search-container">
+                        <input
+                            type="text"
+                            placeholder="Search game"
+                            className="search-input"
+                        />
+                    </div>
+                </div>
 
-
-                        <div className={'nav-right'}>
-                            <li><Link to={'/'} className="nav-item sign-in">Sign in</Link></li>
-                            <li><Link to={'/register'} className="nav-item ">Register</Link></li>
-                        </div>
-
-                    </ul>
+                <div className="header-right">
+                    <Link to="/src/pages/LoginPage/LoginPage.js" className="btn btn-login">Login</Link>
+                    <Link to="/src/pages/RegisterPage/RegisterPage.js" className="btn btn-signup">Sign up</Link>
+                    <button className="hamburger-menu">
+                        <span className="hamburger-icon"></span>
+                    </button>
                 </div>
             </div>
         </header>
-
-
     );
 };
 
