@@ -5,7 +5,6 @@ import {userReducer} from "./reduser/UserReduser";
 const store = configureStore({
     reducer: {
         users:userReducer,
-        games: gamesReducer,
     },
 });
 
