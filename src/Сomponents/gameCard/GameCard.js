@@ -20,8 +20,6 @@ const GameCard = ({ games }) => {
 
                             <div className="card-body">
                                 <p>{game.name}</p>
-                                <p>Released: {game.released}</p>
-                                <p>Rating: {game.rating} / 5</p>
                             </div>
                         </div>
                     </Link>
