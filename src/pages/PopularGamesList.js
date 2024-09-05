@@ -1,12 +1,11 @@
-
-import "./style.scss";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import GameCard from "../gameCard/GameCard";
+import GameCard from "../Сomponents/gameCard/GameCard";
 
 
 const apiKEY='322d6919d3f644b28fe2dd00d66d35f1';
-const GamesList = () => {
+const PopularGamesList = () => {
+
     const [games, setGames] = useState([]);
 
     useEffect(() => {
@@ -27,8 +26,5 @@ const GamesList = () => {
     );
 };
 
-export default GamesList;
 
-
-
-
+export default PopularGamesList;

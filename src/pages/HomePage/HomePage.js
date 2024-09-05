@@ -2,7 +2,8 @@ import React from 'react';
 
 import Header from "../../Сomponents/Header/Header";
 import CategoriesMenu from "../../Сomponents/Categories/CategoriesMenu";
-import GamesList from "../../Сomponents/Gamelist/GamesList";
+import PopularGamesList from "../PopularGamesList";
+import TopRatingGames from "../TopRatingGames";
 
 
 function HomePage() {
@@ -12,8 +13,8 @@ function HomePage() {
         <div>
             <Header/>
             <CategoriesMenu/>
-            <h2>Books</h2>
-            <GamesList/>
+            <PopularGamesList/>
+            <TopRatingGames/>
 
         </div>
     );

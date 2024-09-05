@@ -1,8 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './style.scss'
 
-const GamesCard = ({ games}) => {
+import React from 'react';
+import './style.scss';
+import {Link} from "react-router-dom";
+
+
+const GameCard = ({ games }) => {
+
     return (
         <div className="row">
             {games.map(game => (
@@ -28,4 +31,4 @@ const GamesCard = ({ games}) => {
     );
 };
 
-export default GamesCard;
+export default GameCard;
