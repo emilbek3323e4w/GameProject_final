@@ -3,19 +3,17 @@ import React from 'react';
 import './LoginPage.scss';
 import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
-import {registerUser} from "../../redux/action/userAction";
+import {loginUser} from "../../redux/action/userAction";
 
 function LoginPage() {
 
 
     const { register, handleSubmit } = useForm();
-    const dispatch=useDispatch
-    const handleSignIn=(data)=>{
-        dispatch(registerUser(data))
-    }
+    const dispatch = useDispatch();
 
-
-
+    const handleSignIn = (data) => {
+        dispatch(loginUser(data));
+    };
 
     return (
 
@@ -32,8 +30,6 @@ function LoginPage() {
                             {...register("password")}
                             className={'form-control'} type={'password'} placeholder={'Password'}/>
                     </div>
-
-
                     <button className={'btn-primary'}>Done</button>
                 </form>
 
