@@ -1,117 +1,55 @@
-// import React, {useState} from 'react';
-// import {useForm} from "react-hook-form";
-// import {useDispatch} from "react-redux";
-// import {registerUser} from "../../redux/action/userAction";
-//
-// const RegisterPage = () => {
-//     const { register, handleSubmit } = useForm();
-//    const [showPassword, setShowPassword] = useState(false);
-//   const dispatch = useDispatch();
-//     const handleSignIn=(data)=>{
-//       return dispatch(registerUser(data))
-//     }
-//     return (
-//         <div>
-//             <form className={'sign-in-form'} onSubmit={handleSubmit((data) => handleSignIn(data))}>
-//                 <input
-//                     {...register("phone_number")}
-//                     className={'form-control'}
-//                     type={'text'}
-//                     placeholder={'Phone_number'}/>
-//                 <input
-//                     {...register("username")}
-//                     className={'form-control'}
-//                     type={'text'}
-//                     placeholder={'Username'}/>
-//                 <div>
-//                     <input
-//                         {...register("password")}
-//                         className={'form-control'} type={showPassword?'password':'text'} placeholder={'Password'}/>
-// <button type={'button'} onClick={()=>setShowPassword(!showPassword)}/>
-//                 </div>
-//                 <button className={'btn-primary'}>Done</button>
-//             </form>
-//         </div>
-//     );
-// };
-//
-//
-// export default RegisterPage;
+import React from 'react';
+import './RegisterPage.scss';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../redux/action/userAction';
 
+function RegistrationPage() {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const dispatch = useDispatch();
+    const { loading, error } = useSelector(state => state.users);
 
-
-import React, { useState } from 'react';
-import './RegisterPage.css';
-
-
-const RegistrationForm = () => {
-    const [formData, setFormData] = useState({
-        username: '',
-        email: '',
-        password: ''
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted:', formData);
-        setFormData({
-            username: '',
-            email: '',
-            password: ''
-        });
+    const handleRegister = (data) => {
+        dispatch(registerUser(data));
     };
 
     return (
-        <div className="container-all">
-            <div className="form-container">
-                <h2>Register</h2>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="username">Username:</label>
+        <div className="body-registration-page">
+            <div className="registration-container">
+                <form className="registration-form" onSubmit={handleSubmit(handleRegister)}>
+                    <div className="input-group">
                         <input
+                            {...register("username", { required: "Username is required" })}
+                            className="form-control"
                             type="text"
-                            id="username"
-                            name="username"
-                            value={formData.username}
-                            onChange={handleChange}
-                            required
+                            placeholder="Username"
                         />
-                    </div>
-                    <div>
-                        <label htmlFor="email">Email:</label>
+                        {errors.username && <p className="error">{errors.username.message}</p>}
+
                         <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
+                            {...register("phone_number", { required: "phone_number is required" })}
+                            className="form-control"
+                            type="number"
+                            placeholder="Phone number"
                         />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password:</label>
+                        {errors.email && <p className="error">{errors.email.message}</p>}
+
                         <input
+                            {...register("password", { required: "Password is required" })}
+                            className="form-control"
                             type="password"
-                            id="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
+                            placeholder="Password"
                         />
+                        {errors.password && <p className="error">{errors.password.message}</p>}
                     </div>
-                    <button type="submit">Register</button>
+                    <button className="btn-primary" type="submit" disabled={loading}>
+                        {loading ? 'Registering...' : 'Register'}
+                    </button>
+                    {error && <p className="error">{error}</p>}
                 </form>
             </div>
         </div>
     );
-};
+}
 
-export default RegistrationForm;
+export default RegistrationPage;

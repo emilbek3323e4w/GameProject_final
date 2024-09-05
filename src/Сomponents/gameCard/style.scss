@@ -13,7 +13,11 @@ $font-size: 0.875rem;
   display: grid;
   grid-template-columns: repeat(5, $card-width);
   gap: $gap;
-  justify-content: center;
+  justify-content: space-between;
+
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(6, $card-width);
+  }
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(4, $card-width);
@@ -78,3 +82,7 @@ $font-size: 0.875rem;
 .game-title {
   text-decoration: none;
 }
+
+
+
+
