@@ -8,7 +8,7 @@ const TopRatingGames = () => {
     const [games, setGames] = useState([]);
 
     useEffect(() => {
-        axios(`https://api.rawg.io/api/games?key=${apiKEY}&dates=2024-01-01,2024-12-01`)
+        axios(`https://api.rawg.io/api/games?key=${apiKEY}&dates=2024-01-01,2024-12-01&`)
             .then(({data}) => {
                 setGames(data.results);
             })
