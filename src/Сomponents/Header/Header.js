@@ -45,7 +45,6 @@ const Header = () => {
                 <div className="header-right">
                     <Link to="/login" className="btn btn-login">Login</Link>
                     <Link to="/register" className="btn btn-signup">Sign up</Link>
-                    <Link to="/sign-in" className="btn btn-signup">Sign in</Link>
                     <button className="hamburger-menu" onClick={toggleMenu}>
                         <svg
                             width="24"

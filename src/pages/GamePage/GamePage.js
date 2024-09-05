@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
-import './style.scss';
+import './GamePage.scss';
 import { handleGenerateApi } from '../../servises/servis';
 
 const GamePage = () => {
@@ -51,7 +51,6 @@ const GamePage = () => {
                                 <div className={'card-text'}>
                                     Genres:
                                     {game.genres.map(genre => (
-
                                         <span key={genre.id} className={'genres'}> {genre.name}</span>
                                     ))}
 
