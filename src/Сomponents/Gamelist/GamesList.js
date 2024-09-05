@@ -1,39 +1,34 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchGames } from '../../redux/gamesSlice';
-import "./style.scss";
 
+import "./style.scss";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import GamesCard from "../gameCard/GamesCard";
+
+
+const apiKEY='322d6919d3f644b28fe2dd00d66d35f1';
 const GamesList = () => {
-    const dispatch = useDispatch();
-    const games = useSelector((state) => state.games.games);
-    const status = useSelector((state) => state.games.status);
-    const error = useSelector((state) => state.games.error);
+    const [games, setGames] = useState([]);
 
     useEffect(() => {
-        if (status === 'idle') {
-            dispatch(fetchGames());
-        }
-    }, [status, dispatch]);
-
-    if (status === 'loading') {
-        return <div>Loading...</div>;
-    }
-
-    if (status === 'failed') {
-        return <div>Error: {error}</div>;
-    }
+        axios(`https://api.rawg.io/api/games?key=${apiKEY}`)
+            .then(({data}) => {
+                setGames(data.results);
+            })
+    }, []);
 
     return (
-        <div className="games-list">
-            {games.map((game) => (
-                <div className="game-card" key={game.id}>
-                    <img src={game.image} alt={game.name} className="game-image" />
-                    <h3>{game.name}</h3>
-                    <p>{game.price ? `$${game.price}` : 'Free'}</p>
-                </div>
-            ))}
-        </div>
+        <>
+            <h2 style={{
+                color: 'white',
+                fontSize:'32px',
+            }}>Popular Movies</h2>
+            <GamesCard games={games}/>
+        </>
     );
 };
 
 export default GamesList;
+
+
+
+
