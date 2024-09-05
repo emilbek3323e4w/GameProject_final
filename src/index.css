@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #131313;
 }
 
 code {
@@ -12,5 +13,21 @@ code {
     monospace;
 }
 
+
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 10px auto;
+}
+
+
+
+.movie-title{
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
 
 

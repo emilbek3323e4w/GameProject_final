@@ -1,0 +1,89 @@
+$primary-color: #007bff;
+$dark-bg: #222222;
+$white-color: #fff;
+$spacing-unit: 1rem;
+$gap: 2rem;
+$card-width: 200px;
+$card-height: 250px;
+$card-padding: 0.75rem;
+$title-height: 40px;
+$font-size: 0.875rem;
+
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+}
+
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, $card-width);
+  gap: $gap;
+  justify-content: center;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, $card-width);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(3, $card-width);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, $card-width);
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(1, $card-width);
+  }
+}
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: $dark-bg;
+  color: $white-color;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  height: $card-height;
+  width: $card-width;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &-img-top {
+    width: 100%;
+    height: calc($card-height - $title-height);
+    object-fit: cover;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+  }
+
+  &-body {
+    height: $title-height;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $card-padding;
+
+    p {
+      margin: 0;
+      font-size: $font-size;
+      text-align: center;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+}
+
+
+.game-title {
+  text-decoration: none;
+}
