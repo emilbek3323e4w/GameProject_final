@@ -24,8 +24,9 @@ const Header = () => {
                 </div>
 
                 <div className="header-right">
-                    <Link to="/src/pages/LoginPage/LoginPage.js" className="btn btn-login">Login</Link>
-                    <Link to="/src/pages/RegisterPage/RegisterPage.js" className="btn btn-signup">Sign up</Link>
+                    <Link to="/login" className="btn btn-login">Login</Link>
+                    <Link to="/register" className="btn btn-signup">Sign up</Link>
+                    <Link to="/sign-in" className="btn btn-signup">Sign in</Link>
                     <button className="hamburger-menu">
                         <span className="hamburger-icon"></span>
                     </button>
