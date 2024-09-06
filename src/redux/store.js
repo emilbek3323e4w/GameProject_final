@@ -1,4 +1,4 @@
-// src/redux/store.js
+
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from '../redux/reducer/UserReducer';
 import gamesReducer from '../redux/reducer/GamesReducer';

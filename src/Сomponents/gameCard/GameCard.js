@@ -10,15 +10,15 @@ const GameCard = ({ games }) => {
         <div className="row">
             {games.map(game => (
                 <div key={game.id} className="col-md-3">
-                    <Link className={'game-title'} to={`/game/${game.id}`}>
-                        <div className="card">
+                    <Link className={'game-card-title'} to={`/game/${game.id}`}>
+                        <div className="game-card">
                             <img
                                 src={game.background_image}
-                                className="card-img-top"
+                                className="game-card-img-top"
                                 alt={game.name}
                             />
 
-                            <div className="card-body">
+                            <div className="game-card-body">
                                 <p>{game.name}</p>
                             </div>
                         </div>
