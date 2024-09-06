@@ -1,28 +1,31 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React, {useEffect} from 'react';
 import GameCard from "../Сomponents/gameCard/GameCard";
 import '../index.css'
+import {fetchGames} from "../redux/action/gameActions";
+import {useDispatch, useSelector} from "react-redux";
 
-const apiKEY='322d6919d3f644b28fe2dd00d66d35f1';
 const PopularGamesList = () => {
 
-    const [games, setGames] = useState([]);
+    const dispatch = useDispatch();
+    const { games, loading, error } = useSelector((state) => state.games);
+
 
     useEffect(() => {
-        axios(`https://api.rawg.io/api/games?key=${apiKEY}`)
-            .then(({data}) => {
-                setGames(data.results);
-            })
-    }, []);
+        dispatch(fetchGames());
+    }, [dispatch]);
 
     return (
-            <div className={'container'}>
-                <h2 style={{
-                    color: 'white',
-                    fontSize: '32px',
-                }}>Popular Games</h2>
-                <GameCard games={games}/>
-            </div>
+        <div className={'container'}>
+            <h2 style={{
+                color: 'white',
+                fontSize: '32px',
+                marginTop: '20px',
+                marginBottom: '20px',
+            }}>Popular Games</h2>
+            {loading && <p>Loading...</p>}
+            {error && <p className="error">{error}</p>}
+            <GameCard games={games} />
+        </div>
     );
 };
 
